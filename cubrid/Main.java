@@ -29,22 +29,24 @@ public class Main {
         date = sdf1.parse(evanGB);
         java.sql.Date evan = new java.sql.Date(date.getTime());
         
-        
-        
+        Reiziger reiziger1 = new Reiziger();
+        Reiziger reiziger2 = new Reiziger();
+        Reiziger reiziger3 = new Reiziger();
+        Reiziger reiziger4 = new Reiziger();
+              
  
         // Voeg reiziger toe aan database
         System.out.println("Reiziger toevoegen:");
-        Reiziger reiziger1 = new Reiziger();
+        
         reiziger1.setReizigerId(6);
-        reiziger1.setAchternaam("YOUNG");
+        reiziger1.setAchternaam("Jong");
         reiziger1.setVoorletters("L");
-        reiziger1.setTussenvoegsel("");
+        reiziger1.setTussenvoegsel("De");
         reiziger1.setGeboortedatum(luuk);
 
         reizigerDao.save(reiziger1);
 
         System.out.println("Reiziger toevoegen:");
-        Reiziger reiziger2 = new Reiziger();
         reiziger2.setReizigerId(7);
         reiziger2.setAchternaam("Hamoen");
         reiziger2.setVoorletters("PN");
@@ -54,7 +56,6 @@ public class Main {
         reizigerDao.save(reiziger2);
         
         System.out.println("Reiziger toevoegen:");
-        Reiziger reiziger3 = new Reiziger();
         reiziger3.setReizigerId(8);
         reiziger3.setAchternaam("Bright");
         reiziger3.setVoorletters("B");
@@ -64,7 +65,6 @@ public class Main {
         reizigerDao.save(reiziger3);
         
         System.out.println("Reiziger toevoegen:");
-        Reiziger reiziger4 = new Reiziger();
         reiziger4.setReizigerId(9);
         reiziger4.setAchternaam("Essen");
         reiziger4.setVoorletters("E");
@@ -83,7 +83,7 @@ public class Main {
         }
 
         // Haal reiziger met de achternaam
-        System.out.println("Achternaam van Niek: ");
+        System.out.println("Achternaam van Niek:");
 
         reizigerDao.findByAchternaam("Rijn");
 
@@ -104,12 +104,6 @@ public class Main {
         // Delete reiziger
         System.out.println("\nReiziger verwijderen:");
         reizigerDao.delete(reiziger1);
-        System.out.println("\nReiziger verwijderen:");
-        reizigerDao.delete(reiziger2);
-        System.out.println("\nReiziger verwijderen:");
-        reizigerDao.delete(reiziger3);
-        System.out.println("\nReiziger verwijderen:");
-        reizigerDao.delete(reiziger4);
 
         System.out.println("\nAlle reizigers:");
         for ( Reiziger reiziger : reizigerDao.findAll()) {

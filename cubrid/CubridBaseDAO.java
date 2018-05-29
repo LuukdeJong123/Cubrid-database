@@ -12,7 +12,7 @@ public class CubridBaseDAO {
 	 protected static Connection getConnection() throws SQLException, ClassNotFoundException {
 		 	Class.forName("cubrid.jdbc.driver.CUBRIDDriver");
 			conn = DriverManager.getConnection("jdbc:CUBRID:localhost:30000:DP_database:dba:admin:");
-	        return conn = DriverManager.getConnection("jdbc:CUBRID:localhost:30000:DP_database:dba:admin:");
+	        return conn;
 	 }
 }
 

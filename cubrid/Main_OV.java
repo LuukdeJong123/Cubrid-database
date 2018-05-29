@@ -21,6 +21,10 @@ public class Main_OV {
         String geldig2="01-02-2020";
         date = sdf1.parse(geldig2);
         java.sql.Date geldigTot2 = new java.sql.Date(date.getTime());
+        
+        String geldig3="01-02-2023";
+        date = sdf1.parse(geldig3);
+        java.sql.Date geldigTot3 = new java.sql.Date(date.getTime());
 
 
         System.out.println("Kaart toevoegen: ");
@@ -29,7 +33,7 @@ public class Main_OV {
         k1.setGeldigTot(geldigTot);
         k1.setKlasse(1);
         k1.setSaldo(100.00);
-        k1.setReizigerId(4);
+        k1.setReizigerId(8);
         ovChipkaartDao.save(k1);
 
         System.out.println("Kaart toevoegen ");
@@ -38,9 +42,18 @@ public class Main_OV {
         k2.setGeldigTot(geldigTot1);
         k2.setKlasse(2);
         k2.setSaldo(200.00);
-        k2.setReizigerId(5);
+        k2.setReizigerId(8);
 
         ovChipkaartDao.save(k2);
+        
+        System.out.println("Kaart toevoegen ");
+        CU_Chipkaart k3 = new CU_Chipkaart();
+        k3.setKaartnummer(50004);
+        k3.setGeldigTot(geldigTot3);
+        k3.setKlasse(1);
+        k3.setSaldo(0.00);
+        k3.setReizigerId(9);
+        ovChipkaartDao.save(k3);
 
         // Haal alle kaarten op uit Database
 
@@ -84,9 +97,9 @@ public class Main_OV {
 		System.out.println();
 
         // Verwijder kaart op basis van ID
-        System.out.println("\nverwijder kaart:");
-        ovChipkaartDao.delete(k1);
-        ovChipkaartDao.delete(k2);
+//        System.out.println("\nverwijder kaart:");
+//        ovChipkaartDao.delete(k1);
+ 
 
         System.out.println("\nAlle kaarten: ");
         for ( CU_Chipkaart ovChipkaart : ovChipkaartDao.findAll()) {
